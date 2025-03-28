@@ -28,5 +28,8 @@ filter_mzml_by_intensity(
   threshold = 250  # adjust as needed
 )
 ```
+## Example dataset
+Example dataset is available here: http://users.uoa.gr/~nalygizakis/PASEF-size-reducer/Sample_2B_ready_extracts_PASEF_POS_7_1_19653.mzML
+
 ## License
 MIT License. Feel free to use, adapt, and integrate into your own pipelines.
