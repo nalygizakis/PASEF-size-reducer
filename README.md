@@ -1,9 +1,7 @@
 # PASEF-size-reducer
-This R script is a custom mzML parser and cleaner, purpose-built for high-resolution mass spectrometry data — particularly for indexed mzML files generated from PASEF acquisitions (e.g., Bruker timsTOF).
+This R script is a custom mzML parser and cleaner, purpose-built for high-resolution mass spectrometry data — particularly for indexed mzML files generated from PASEF acquisitions (e.g., Bruker timsTOF). PASEF-generated mzML files tend to be large in size, while the most informative content often lies in the MS2 spectra, not MS1. This script reduces file size and complexity by removing low-intensity MS1 spectral peaks below a user-defined threshold, and synchronously filters their corresponding m/z and mean inverse reduced ion mobility values to maintain data integrity.
 
-PASEF-generated mzML files tend to be large in size, while the most informative content often lies in the MS2 spectra, not MS1. This script reduces file size and complexity by removing low-intensity MS1 spectral peaks below a user-defined threshold, and synchronously filters their corresponding m/z and mean inverse reduced ion mobility values to maintain data integrity.
-
-What This Script Does
+## What This Script Does
 - Parses the raw XML of an **indexed mzML** file line-by-line.
 - Strips the invalid `<indexList>`, `<indexListOffset>`, and `<fileChecksum>` tags that otherwise cause byte offset errors in viewers like TOPPView.
 - Iterates over each `<spectrum>` block.
@@ -14,7 +12,6 @@ What This Script Does
   - Re-encodes the filtered arrays into Base64 + zlib-compressed format.
   - Updates the `<spectrum>` metadata (e.g. `defaultArrayLength`).
 - Saves a valid, cleaned, non-indexed mzML file that is compatible with most mass spec tools.
-
 
 ### Requirements
 ```r
@@ -31,6 +28,5 @@ filter_mzml_by_intensity(
   threshold = 250  # adjust as needed
 )
 ```
-
 ## License
 MIT License. Feel free to use, adapt, and integrate into your own pipelines.
